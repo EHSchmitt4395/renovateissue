@@ -1,0 +1,18 @@
+{
+  "assignees": ["@schmitt.eric"],
+  "baseBranches": ["master"],
+  "postUpgradeTasks": {
+  "commands": ["kpt pkg update google/ --strategy=resource-merge"],
+  "fileFilters": ["google/*"]
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)Kptfile"],
+      "matchStrings": [
+        "ref:\\s+\"(?<currentValue>.*?)\""
+      ],
+      "depNameTemplate": "GoogleContainerTools/kpt",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}

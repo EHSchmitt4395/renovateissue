@@ -1,0 +1,21 @@
+version: "3.4"
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    ports:
+      - 3000:3000
+    restart: always
+  renovate:
+    image: renovatekpt
+    container_name: renovate
+    volumes:
+      - ./config.js:/usr/src/app/config.js
+    environment:
+      - RENOVATE_ENDPOINT=http://localhost:3000/api/v1
+      - RENOVATE_PLATFORM=gitea
+      - LOG_LEVEL=debug
+      - RENOVATE_TOKEN=680c882499ed90c4d74735e14a57627c32f4a7b0
+      - RENOVATE_AUTODISCOVER=true
+      - trustLevel=high
+    network_mode: host
