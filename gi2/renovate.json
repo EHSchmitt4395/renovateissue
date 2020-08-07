@@ -2,7 +2,7 @@
   "assignees": ["@schmitt.eric"],
   "baseBranches": ["master"],
   "postUpgradeTasks": {
-  "commands": ["kpt pkg update google/ --strategy=resource-merge"],
+  "commands": ["kpt help"],
   "fileFilters": ["google/*"]
   },
   "regexManagers": [
